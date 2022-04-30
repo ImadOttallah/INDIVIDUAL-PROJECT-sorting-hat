@@ -1,0 +1,33 @@
+body {
+  background-color: blanchedalmond;
+  text-align: center;
+}
+
+.welcome {
+background-color: darkgoldenrod;
+border: black 2px solid;
+}
+
+.student-input {
+background-color: darkgrey;
+border: black 2px solid;
+}
+
+.schools {
+background-color: darkcyan;
+border: black 2px solid;
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+padding: 5px;
+}
+
+.dark-side {
+  background-color: darkseagreen;
+  border: black 2px solid;
+}
+
+.school-container {
+  display: flex;
+  flex-wrap: wrap;                           
+}
