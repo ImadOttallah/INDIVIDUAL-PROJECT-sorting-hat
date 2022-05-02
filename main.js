@@ -22,7 +22,7 @@ const students = [
   id: 4,
   name: "Carrie",
   school: "Slytherin",
-  darkside: false
+  darkside: true
 },
 ];
 
@@ -40,10 +40,10 @@ const studentsOnDom = (array) => {
   domString += `
   <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
+  <div class="card-body" id="studentCard">
     <h5 class="card-title">${item.name}</h5>
     <p class="card-text">${item.school}</p>
-    <a href="#" class="btn btn-primary">Expel</a>
+    <a href="#" class="btn btn-primary" id="expel">Expel</a>
   </div>
 </div>`
 };
@@ -59,21 +59,31 @@ document.querySelector("#filterStudents").addEventListener("click", (e) => {
   if (e.target.id === "all") {
     studentsOnDom(students);
   } else if (e.target.id === "gryffindor") {
-      const gryffindor = students.filter(taco => taco.school === "gryffindor" )
+      const gryffindor = students.filter(taco => taco.school === "Gryffindor" )
       studentsOnDom(gryffindor);
     } else if (e.target.id === "hufflepuff") {
-      const hufflepuff = students.filter(taco => taco.school === "hufflepuff" )
+      const hufflepuff = students.filter(taco => taco.school === "Hufflepuff" )
       studentsOnDom(hufflepuff)
     } else if (e.target.id === "ravenclaw") {
-      const ravenclaw = students.filter(taco => taco.school === "ravenclaw" )
+      const ravenclaw = students.filter(taco => taco.school === "Ravenclaw" )
       studentsOnDom(ravenclaw)
     } else if (e.target.id === "slytherin") {
-      const slytherin = students.filter(taco => taco.school === "slytherin" )
+      const slytherin = students.filter(taco => taco.school === "Slytherin" )
       studentsOnDom(slytherin)
     }
     
 });
 
+/** EXPEL TO VOLDEMORT ARMY **/
+document.querySelector("#studentContainer").addEventListener("click",(e) => {
+  if (e.target.id === "expel") {
+    console.log("you clicked me"); 
+    const voldsarmy = students.filter(taco => taco.darkside === true);
+    studentsOnDom(voldsarmy)
+    renderToDom("#voldContainer", voldsarmy)
+
+  };
+});
 };
 
 
