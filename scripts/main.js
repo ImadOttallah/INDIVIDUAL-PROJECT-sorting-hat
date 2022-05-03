@@ -1,29 +1,25 @@
 /******* DATA *******/
 const students = [
-{
-  id: 1,
-  name: "Larry",
-  school: "Gryffindor",
-  darkside: false
-},
-{
-  id: 2,
-  name: "Mary",
-  school: "Hufflepuff",
-  darkside: false
-},
-{
-  id: 3,
-  name: "Harry",
-  school: "Ravenclaw",
-  darkside: false
-},
-{
-  id: 4,
-  name: "Carrie",
-  school: "Slytherin",
-  darkside: true
-},
+// {
+//   name: "Larry",
+//   school: "Gryffindor",
+//   darkside: false
+// },
+// {
+//   name: "Mary",
+//   school: "Hufflepuff",
+//   darkside: false
+// },
+// {
+//   name: "Harry",
+//   school: "Ravenclaw",
+//   darkside: false
+// },
+// {
+//   name: "Carrie",
+//   school: "Slytherin",
+//   darkside: true
+// },
 ];
 
 /******* UTILITY FUNCTION *******/
@@ -34,6 +30,7 @@ const renderToDom = (divId, textToRender) => {
 
 
 /******* STUDENTS *******/
+
 const studentsOnDom = (array) => {
   let domString = "";
   for (const item of array) {
@@ -47,9 +44,33 @@ const studentsOnDom = (array) => {
   </div>
 </div>`
 };
-console.log(students);
+console.log(students)
 renderToDom("#studentContainer", domString)
 };
+
+
+
+/* ADD STUDENTS */
+const choices = ["gryffindor", "hufflepuff", "ravenclaw", "slytherin"];
+const randomSchool = choices[Math.floor(Math.random()*choices.length)];
+console.log(randomSchool)
+
+
+function addStudent(){
+  const choices = ["gryffindor", "hufflepuff", "ravenclaw", "slytherin"];
+  const randomSchool = choices[Math.floor(Math.random()*choices.length)];
+  console.log(randomSchool)
+
+  const newStudent = {
+    name: document.querySelector("#studentInput").value,
+    school: randomSchool,
+    darkside: false
+  };
+  students.push(newStudent);
+  document.querySelector("#studentInput").value="",
+  studentsOnDom(students)
+  }
+
 
 /****** EVENT LISTENERS ******/
 const eventListeners = () => {
@@ -59,32 +80,41 @@ document.querySelector("#filterStudents").addEventListener("click", (e) => {
   if (e.target.id === "all") {
     studentsOnDom(students);
   } else if (e.target.id === "gryffindor") {
-      const gryffindor = students.filter(taco => taco.school === "Gryffindor" )
+      const gryffindor = students.filter(taco => taco.school === "gryffindor" )
       studentsOnDom(gryffindor);
     } else if (e.target.id === "hufflepuff") {
-      const hufflepuff = students.filter(taco => taco.school === "Hufflepuff" )
+      const hufflepuff = students.filter(taco => taco.school === "hufflepuff" )
       studentsOnDom(hufflepuff)
     } else if (e.target.id === "ravenclaw") {
-      const ravenclaw = students.filter(taco => taco.school === "Ravenclaw" )
+      const ravenclaw = students.filter(taco => taco.school === "ravenclaw" )
       studentsOnDom(ravenclaw)
     } else if (e.target.id === "slytherin") {
-      const slytherin = students.filter(taco => taco.school === "Slytherin" )
+      const slytherin = students.filter(taco => taco.school === "slytherin" )
       studentsOnDom(slytherin)
     }
     
 });
 
+
 /** EXPEL TO VOLDEMORT ARMY **/
-document.querySelector("#studentContainer").addEventListener("click",(e) => {
+ document.querySelector("#studentContainer").addEventListener("click",(e) => {
+  //dont forget to add function
+  function expelStudent(){
+    const badStudent = {
+      darkside: true
+    };
+    students.push(badStudent);
+  };
+
   if (e.target.id === "expel") {
     console.log("you clicked me"); 
     const voldsarmy = students.filter(taco => taco.darkside === true);
-    studentsOnDom(voldsarmy)
+    studentsOnDom(voldsarmy);
     renderToDom("#voldContainer", voldsarmy)
-
   };
-});
-};
+ });
+
+ };
 
 
 
