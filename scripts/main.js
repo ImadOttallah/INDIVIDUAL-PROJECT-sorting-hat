@@ -10,17 +10,15 @@ const students = [
 //   school: "Hufflepuff",
 //   darkside: false
 // },
-// {
-//   name: "Harry",
-//   school: "Ravenclaw",
-//   darkside: false
-// },
+
 // {
 //   name: "Carrie",
 //   school: "Slytherin",
 //   darkside: true
-// },
+//}
 ];
+
+
 
 /******* UTILITY FUNCTION *******/
 const renderToDom = (divId, textToRender) => {
@@ -32,8 +30,10 @@ const renderToDom = (divId, textToRender) => {
 /******* STUDENTS *******/
 
 const studentsOnDom = (array) => {
+  const student = array.filter(taco => taco.darkside === false);
+  console.log(array)
   let domString = "";
-  for (const item of array) {
+  for (const item of student) {
   domString += `
   <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
@@ -44,32 +44,42 @@ const studentsOnDom = (array) => {
   </div>
 </div>`
 };
-console.log(students)
 renderToDom("#studentContainer", domString)
+};
+
+const voldOnDom = (array) => {
+  let domString = "";
+  console.log(array)
+  for (const item of array) {
+  domString += `
+  <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body" id="studentCard">
+    <h5 class="card-title">${item.name}</h5>
+    <p class="card-text">${item.school}</p>
+  </div>
+</div>`
+};
+renderToDom("#voldContainer", domString)
 };
 
 
 
+
 /* ADD STUDENTS */
-const choices = ["gryffindor", "hufflepuff", "ravenclaw", "slytherin"];
-const randomSchool = choices[Math.floor(Math.random()*choices.length)];
-console.log(randomSchool)
-
-
 function addStudent(){
   const choices = ["gryffindor", "hufflepuff", "ravenclaw", "slytherin"];
   const randomSchool = choices[Math.floor(Math.random()*choices.length)];
-  console.log(randomSchool)
-
   const newStudent = {
     name: document.querySelector("#studentInput").value,
     school: randomSchool,
     darkside: false
   };
   students.push(newStudent);
-  document.querySelector("#studentInput").value="",
-  studentsOnDom(students)
-  }
+  document.querySelector("#studentInput").value="";
+  studentsOnDom(students);
+  };
+
 
 
 /****** EVENT LISTENERS ******/
@@ -98,20 +108,20 @@ document.querySelector("#filterStudents").addEventListener("click", (e) => {
 
 /** EXPEL TO VOLDEMORT ARMY **/
  document.querySelector("#studentContainer").addEventListener("click",(e) => {
-  //dont forget to add function
-  function expelStudent(){
-    const badStudent = {
-      darkside: true
-    };
-    students.push(badStudent);
-  };
-
+  
   if (e.target.id === "expel") {
+   function expel(){
+   const vald = {
+     darkside: true
+    };
+   students.push(vald)
+  }
+expel();
     console.log("you clicked me"); 
     const voldsarmy = students.filter(taco => taco.darkside === true);
-    studentsOnDom(voldsarmy);
-    renderToDom("#voldContainer", voldsarmy)
+    voldOnDom(voldsarmy);
   };
+  console.log(students)
  });
 
  };
@@ -122,6 +132,7 @@ document.querySelector("#filterStudents").addEventListener("click", (e) => {
 /*********  START APP **********/
 const startApp = () => {
   studentsOnDom(students);
+  voldOnDom(students);
   eventListeners();
 };
 
