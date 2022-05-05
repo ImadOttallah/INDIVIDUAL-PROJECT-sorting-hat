@@ -18,7 +18,7 @@ background-color: darkcyan;
 border: black 2px solid;
 display: flex;
 flex-flow: row wrap;
-justify-content: space-between;
+/*justify-content: space-between;*/
 flex: 0 0 50%;
 padding: 10px;
 
@@ -38,4 +38,7 @@ padding: 10px;
 
 .card {
   margin: 4px;
+  width: 200px;
+  height: 500px;
+  
 }
