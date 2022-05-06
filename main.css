@@ -9,12 +9,12 @@ border: black 2px solid;
 }
 
 .student-input {
-background-color: darkgrey;
-border: black 2px solid;
+background-color: black;
+border: rgb(255, 255, 255) 2px solid;
 }
 
 .schools {
-background-color: darkcyan;
+background-color: rgb(0, 0, 0);
 border: black 2px solid;
 display: flex;
 flex-flow: row wrap;
@@ -25,10 +25,12 @@ padding: 10px;
 }
 
 .dark-side {
-  background-color: darkseagreen;
-  border: black 2px solid;
+  background-color: rgb(255, 255, 255);
+  border: qqrgb(255, 255, 255) 2px solid;
   flex: 0 0 50%;
   padding: 10px;
+  display: flex;
+  flex-wrap: wrap; 
 }
 
 .school-container {
@@ -40,5 +42,27 @@ padding: 10px;
   margin: 4px;
   width: 200px;
   height: 500px;
-  
+} 
+.card2{
+  margin: 4px;
+  width: 200px;
+  height: 500px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+.rcorners {
+  border-radius: 50px;
+}
+.expelBtn:hover {
+  background-color:#f50202;
+  border: solid black 1px;
+  transition: 0.7s;
+}
+.expelBtn {
+color: white;
+background-color: black;
+border: solid black 1px;
+position: bottom;
+border-radius: 50px;
 }
