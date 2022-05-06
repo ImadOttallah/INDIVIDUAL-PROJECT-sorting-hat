@@ -21,31 +21,21 @@
 </div>
 
 <!--SORT INPUT-->
-<input type="text" id="studentInput" placeholder="Enter Students Name..." class="input">
-<button onclick="addStudent()" class="button">Sort</button>
+<div>
+<input type="text" name="name" id="studentInput" class="input" placeholder="Enter Students Name..." required>
+<button type="submit"  onclick="addStudent()" class="button">Sort</button>
+</div>
+<div class="error" id="errorMessage">
 
-
-
+</div>
 
 <!--BUTTON ROW-->
-<div class="student-input" id="filterStudents">
-  <button id="all">All</button>
-  <button id="gryffindor">Gryffindor</button>
-  <button id="hufflepuff">Hufflepuff</button>
-  <button id="ravenclaw">Ravenclaw</button>
-  <button id="slytherin">Slytherin</button>
-</div>
+<div class="student-input" id="filterStudents"></div>
 
 <!--CARDS DIV-->
 <div class="school-container">
-<div class="schools" id="studentContainer">
-
-</div>
-
-<div class="dark-side" id="voldContainer">
-
-</div>
-
+<div class="schools" id="studentContainer"></div>
+<div class="dark-side" id="voldContainer"></div>
 </div>
 
 <!--BOOTSTRAP SCRIPTS-->
