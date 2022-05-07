@@ -50,3 +50,13 @@ Think of a way you can expel students without just hiding those divs on the page
 - House Colors: The color of the student's card changes depending on which house they were sorted.
 - Card Sorting/Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
 
+
+
+
+
+Things I learned:
+- Using two arrays to seperate objects into different divs.
+- Hiding buttons and divs
+- Updating cards between switching arrays 
+- Using Loom to make short videos of my work
+- Seperating objects by ID
